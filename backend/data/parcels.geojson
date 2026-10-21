@@ -1,0 +1,304 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jicin-001",
+        "parcelNumber": "123/1",
+        "cadastre": "Jičín",
+        "area": 1285,
+        "landUse": "Zemědělská půda",
+        "owner": "Městský úřad Jičín",
+        "cadastralArea": "Jičín",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.331, 50.431],
+          [15.34, 50.431],
+          [15.34, 50.438],
+          [15.331, 50.438],
+          [15.331, 50.431]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jicin-002",
+        "parcelNumber": "456/8",
+        "cadastre": "Jičín",
+        "area": 2140,
+        "landUse": "Orná půda",
+        "owner": "Agrární družstvo Jičín",
+        "cadastralArea": "Jičín",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.344, 50.434],
+          [15.358, 50.434],
+          [15.358, 50.445],
+          [15.344, 50.445],
+          [15.344, 50.434]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jicin-003",
+        "parcelNumber": "89/12",
+        "cadastre": "Jičín",
+        "area": 950,
+        "landUse": "Zahrada",
+        "owner": "Rodina Nováková",
+        "cadastralArea": "Jičín",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.327, 50.442],
+          [15.338, 50.442],
+          [15.338, 50.451],
+          [15.327, 50.451],
+          [15.327, 50.442]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jicin-004",
+        "parcelNumber": "14/3",
+        "cadastre": "Jičín",
+        "area": 1765,
+        "landUse": "Lesní pozemek",
+        "owner": "Lesní společnost Jičín",
+        "cadastralArea": "Jičín",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.352, 50.425],
+          [15.368, 50.425],
+          [15.368, 50.436],
+          [15.352, 50.436],
+          [15.352, 50.425]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "brezina-001",
+        "parcelNumber": "52/7",
+        "cadastre": "Březina",
+        "area": 1020,
+        "landUse": "Orná půda",
+        "owner": "Farmářství Březina s.r.o.",
+        "cadastralArea": "Březina",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.379, 50.429],
+          [15.392, 50.429],
+          [15.392, 50.438],
+          [15.379, 50.438],
+          [15.379, 50.429]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "brezina-002",
+        "parcelNumber": "90/4",
+        "cadastre": "Březina",
+        "area": 1865,
+        "landUse": "Zemědělská půda",
+        "owner": "Pavel Kovář",
+        "cadastralArea": "Březina",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.365, 50.442],
+          [15.383, 50.442],
+          [15.383, 50.452],
+          [15.365, 50.452],
+          [15.365, 50.442]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "brezina-003",
+        "parcelNumber": "341/22",
+        "cadastre": "Březina",
+        "area": 1430,
+        "landUse": "Trvalý travní porost",
+        "owner": "Lukáš Černý",
+        "cadastralArea": "Březina",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.392, 50.438],
+          [15.406, 50.438],
+          [15.406, 50.449],
+          [15.392, 50.449],
+          [15.392, 50.438]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "konecchlum-001",
+        "parcelNumber": "27/3",
+        "cadastre": "Konecchlumí",
+        "area": 1210,
+        "landUse": "Zahrada",
+        "owner": "Anna Vávrová",
+        "cadastralArea": "Konecchlumí",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.35, 50.46],
+          [15.364, 50.46],
+          [15.364, 50.47],
+          [15.35, 50.47],
+          [15.35, 50.46]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "konecchlum-002",
+        "parcelNumber": "88/5",
+        "cadastre": "Konecchlumí",
+        "area": 1570,
+        "landUse": "Lesní pozemek",
+        "owner": "Konecchlumí Forestry",
+        "cadastralArea": "Konecchlumí",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.367, 50.455],
+          [15.384, 50.455],
+          [15.384, 50.468],
+          [15.367, 50.468],
+          [15.367, 50.455]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "konecchlum-003",
+        "parcelNumber": "205/9",
+        "cadastre": "Konecchlumí",
+        "area": 1760,
+        "landUse": "Orná půda",
+        "owner": "Josef Dvořák",
+        "cadastralArea": "Konecchlumí",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.388, 50.454],
+          [15.404, 50.454],
+          [15.404, 50.466],
+          [15.388, 50.466],
+          [15.388, 50.454]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ostruzno-001",
+        "parcelNumber": "112/8",
+        "cadastre": "Ostružno",
+        "area": 990,
+        "landUse": "Zemědělská půda",
+        "owner": "Miroslav Urban",
+        "cadastralArea": "Ostružno",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.309, 50.421],
+          [15.323, 50.421],
+          [15.323, 50.431],
+          [15.309, 50.431],
+          [15.309, 50.421]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ostruzno-002",
+        "parcelNumber": "201/16",
+        "cadastre": "Ostružno",
+        "area": 1345,
+        "landUse": "Lesní pozemek",
+        "owner": "Obec Ostružno",
+        "cadastralArea": "Ostružno",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.286, 50.431],
+          [15.305, 50.431],
+          [15.305, 50.441],
+          [15.286, 50.441],
+          [15.286, 50.431]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ostruzno-003",
+        "parcelNumber": "77/2",
+        "cadastre": "Ostružno",
+        "area": 1180,
+        "landUse": "Orná půda",
+        "owner": "Karel Balcar",
+        "cadastralArea": "Ostružno",
+        "status": "Aktivní"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [15.306, 50.445],
+          [15.321, 50.445],
+          [15.321, 50.455],
+          [15.306, 50.455],
+          [15.306, 50.445]
+        ]]
+      }
+    }
+  ]
+}
