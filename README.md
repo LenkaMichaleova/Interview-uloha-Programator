@@ -1,6 +1,6 @@
 # Parcelní mapa Jičín
 
-Jedná se o demo projekt pro zobrazení parcel v mapě okresu Jičín. Frontend je postaven na React + TypeScript, backend využívá čisté PHP a vrstvu API nad lokálním GeoJSON souborem. Aplikace zobrazuje parcely podle aktuálního rozsahu mapy a po kliknutí na parcelu vykresluje základní informace o daném objektu.
+Jedná se o demo projekt pro zobrazení parcel v mapě okresu Jičín. Frontend je postaven na React + TypeScript, backend využívá čisté PHP a vrstvu API nad GeoJSON cache souborem. Aplikace zobrazuje parcely podle aktuálního rozsahu mapy a po výběru parcely vykresluje základní informace o daném objektu.
 
 ## Co je součástí projektu
 
@@ -67,8 +67,11 @@ Mělo by se vrátit JSON ve formátu GeoJSON FeatureCollection.
 
 - `GET /api/parcels?bbox=minLon,minLat,maxLon,maxLat`
   - vrací parcely v zobrazeném rozsahu mapy
+  - parametr `bbox` je volitelný; bez něj API vrátí data pro výchozí oblast okresu Jičín
 - `GET /api/parcel?id=parcel-id`
   - vrací jednu parcelu podle ID
+- `GET /api/refresh`
+  - stáhne zdrojová data, normalizuje je a obnoví lokální GeoJSON cache
 
 ## Struktura projektu
 

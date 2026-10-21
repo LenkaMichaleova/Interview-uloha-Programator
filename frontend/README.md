@@ -1,6 +1,6 @@
 # Frontend parcelní mapy
 
-Tento adresář obsahuje React frontend pro parcelní mapu Jičín. Aplikace zobrazuje parcely na mapě, načítá je podle aktuálního rozsahu a po kliknutí na parcelu ukazuje základní informace.
+Tento adresář obsahuje React frontend pro parcelní mapu Jičín. Aplikace zobrazuje parcely na mapě, načítá je podle aktuálního rozsahu a detail parcely lze otevřít kliknutím v mapě nebo výběrem ve filtrech v levém panelu.
 
 ## Předpoklady
 

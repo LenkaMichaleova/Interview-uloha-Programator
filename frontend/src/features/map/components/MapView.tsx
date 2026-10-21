@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { MapContainer, Marker, TileLayer, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import { renderToStaticMarkup } from 'react-dom/server';
-import LandscapeRoundedIcon from '@mui/icons-material/LandscapeRounded';
+import HomeWorkRoundedIcon from '@mui/icons-material/HomeWorkRounded';
 import type { MapViewProps } from '../types/map.types';
 import type {
   ParcelFeature,
@@ -42,8 +42,8 @@ function getParcelCenter(parcel: ParcelFeature): [number, number] {
 
 function createParcelMarkerIcon(color: string, selected: boolean) {
   const svgMarkup = renderToStaticMarkup(
-    <LandscapeRoundedIcon
-      sx={{ fontSize: selected ? 16 : 18 }}
+    <HomeWorkRoundedIcon
+      sx={{ fontSize: selected ? 14 : 15 }}
       htmlColor="#ffffff"
     />
   );
@@ -52,20 +52,20 @@ function createParcelMarkerIcon(color: string, selected: boolean) {
     className: 'parcel-marker-wrapper',
     html: `
       <div style="
-        width: ${selected ? 30 : 26}px;
-        height: ${selected ? 30 : 26}px;
+        width: ${selected ? 26 : 22}px;
+        height: ${selected ? 26 : 22}px;
         border-radius: 50%;
         background: ${color};
-        border: ${selected ? '3px solid rgba(255,255,255,0.9)' : '2px solid rgba(15, 23, 42, 0.8)'};
-        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+        border: ${selected ? '2px solid rgba(255,255,255,0.9)' : '1.5px solid rgba(15, 23, 42, 0.72)'};
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.16);
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
       ">${svgMarkup}</div>
     `,
-    iconSize: [selected ? 30 : 26, selected ? 30 : 26],
-    iconAnchor: [selected ? 15 : 13, selected ? 15 : 13],
+    iconSize: [selected ? 26 : 22, selected ? 26 : 22],
+    iconAnchor: [selected ? 13 : 11, selected ? 13 : 11],
     popupAnchor: [0, -12],
   });
 }
@@ -84,7 +84,7 @@ export function MapView({
       center={center}
       zoom={zoom}
       scrollWheelZoom
-      style={{ width: '100%', height: '100vh', minHeight: '560px' }}
+      style={{ width: '100%', height: '100%' }}
       className="leaflet-container"
     >
       <MapController onBoundsChange={onBoundsChange} />
