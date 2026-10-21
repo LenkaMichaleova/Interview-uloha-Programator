@@ -15,14 +15,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
-$repo = new ParcelRepository(dirname(__DIR__) . '/data/parcels.geojson');
+$repo = new ParcelRepository(dirname(__DIR__) . '/data/parcels.geojson', '');
 
 try {
+    if ($uri === '/api/refresh' || $uri === '/api/refresh/') {
+        $features = $repo->refreshFromSource();
+        echo json_encode([
+            'type' => 'FeatureCollection',
+            'features' => $features,
+            'refreshedAt' => gmdate('c'),
+        ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+
     if ($uri === '/api/parcels' || $uri === '/api/parcels/') {
+        $repo->ensureCacheFresh();
         $bbox = trim((string) ($_GET['bbox'] ?? ''));
 
         if ($bbox === '') {
-            echo json_encode(['type' => 'FeatureCollection', 'features' => $repo->getAll()], JSON_PRETTY_PRINT);
+            $defaultJicinBbox = [15.0, 50.15, 15.85, 50.8];
+            [$minLon, $minLat, $maxLon, $maxLat] = $defaultJicinBbox;
+            $features = $repo->listWithinBounds($minLon, $minLat, $maxLon, $maxLat);
+
+            echo json_encode(['type' => 'FeatureCollection', 'features' => $features], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
             exit;
         }
 
@@ -36,11 +51,12 @@ try {
         [$minLon, $minLat, $maxLon, $maxLat] = $parts;
         $features = $repo->listWithinBounds($minLon, $minLat, $maxLon, $maxLat);
 
-        echo json_encode(['type' => 'FeatureCollection', 'features' => $features], JSON_PRETTY_PRINT);
+        echo json_encode(['type' => 'FeatureCollection', 'features' => $features], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         exit;
     }
 
     if ($uri === '/api/parcel' || $uri === '/api/parcel/') {
+        $repo->ensureCacheFresh();
         $id = trim((string) ($_GET['id'] ?? ''));
         if ($id === '') {
             http_response_code(400);
@@ -55,7 +71,7 @@ try {
             exit;
         }
 
-        echo json_encode($feature, JSON_PRETTY_PRINT);
+        echo json_encode($feature, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         exit;
     }
 
@@ -66,5 +82,5 @@ try {
     echo json_encode([
         'error' => 'Unexpected server error.',
         'message' => $exception->getMessage(),
-    ]);
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 }
