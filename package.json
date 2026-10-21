@@ -1,0 +1,11 @@
+{
+  "name": "projekt-programator",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint",
+    "check": "npm --prefix frontend run check",
+    "format": "npm --prefix frontend run format"
+  }
+}
