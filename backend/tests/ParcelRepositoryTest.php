@@ -26,9 +26,9 @@ if ($feature === null || !isset($feature['properties']['parcelNumber'])) {
     exit(1);
 }
 
-$filtered = $repo->listWithinBounds(14.14, 49.26, 14.18, 49.29);
+$filtered = $repo->listWithinBounds(15.32, 50.42, 15.39, 50.45);
 if (count($filtered) < 1) {
-    fwrite(STDERR, "Expected bbox filter to return at least one parcel.\n");
+    fwrite(STDERR, "Expected bbox filter to return at least one parcel in the Jičín demo dataset.\n");
     exit(1);
 }
 
