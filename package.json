@@ -6,6 +6,9 @@
     "build": "npm --prefix frontend run build",
     "lint": "npm --prefix frontend run lint",
     "check": "npm --prefix frontend run check",
-    "format": "npm --prefix frontend run format"
+    "format": "npm --prefix frontend run format",
+    "test": "npm --prefix frontend run test && php backend/tests/ParcelRepositoryTest.php",
+    "test:frontend": "npm --prefix frontend run test",
+    "test:backend": "php backend/tests/ParcelRepositoryTest.php"
   }
 }
