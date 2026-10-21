@@ -129,6 +129,9 @@ export default function App() {
   }, [selectedParcelId]);
 
   const parcelInfo = selectedParcel?.properties ?? null;
+  const cadastralAreaCount = new Set(
+    visibleParcels.map((parcel) => parcel.properties.cadastre || 'Jičín')
+  ).size;
 
   return (
     <AppShell>
@@ -161,7 +164,7 @@ export default function App() {
                 component="strong"
                 sx={{ display: 'block', mb: 0.5 }}
               >
-                4
+                {cadastralAreaCount}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 katastrální území
