@@ -35,11 +35,26 @@ Pokud PHP není v PATH, použijte plnou cestu, například:
 /opt/homebrew/opt/php@8.3/bin/php -S 127.0.0.1:8000 -t backend/public
 ```
 
+## Testy
+
+Ověřila jsem frontend automatickými testy s Vitest a Testing Library.
+
+```bash
+npm test
+```
+
+Testy pokrývají:
+
+- API volání pro bbox a chybové stavy
+- hook `useParcels`
+- komponent `ParcelDetail`
+
 ## Ověření
 
 ```bash
 npm run lint
 npm run build
+npm test
 ```
 
 ## Zápisník
@@ -47,4 +62,5 @@ npm run build
 - Frontend je postaven na React + Vite, protože umožňuje rychlý vývoj a jednoduché iterování UI.
 - Pro mapu jsem zvolila Leaflet, protože dobře pracuje s GeoJSON a je vhodný pro jednoduché interaktivní zobrazení parcel.
 - Data se načítají podle `bbox`, aby aplikace nevyžadovala jedno velké množství dat najednou.
+- Přidala jsem testy, abych si chránila klíčové funkce a udržela projekt stabilní při dalších úpravách.
 - S více časem bych přidala lepší filtry, detail parcel a robustnější zpracování chyb na backendu.

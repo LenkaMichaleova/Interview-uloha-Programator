@@ -1,6 +1,6 @@
 # Parcelní mapa Jičín
 
-Jedná se o demo projekt pro zobrazení parcel v mapě okresu Jičín. Frontend je postaven na React + TypeScript, backend využívá čisté PHP a vrstvu API nad GeoJSON cache souborem. Aplikace zobrazuje parcely podle aktuálního rozsahu mapy a po výběru parcely vykresluje základní informace o daném objektu.
+Toto je demo projekt pro zobrazení parcel v mapě okresu Jičín. Frontend je postaven na React + TypeScript, backend využívá čisté PHP a vrstvu API nad GeoJSON cache souborem. Aplikace zobrazuje parcely podle aktuálního rozsahu mapy a po výběru parcely vykresluje základní informace o daném objektu.
 
 ## Co je součástí projektu
 
@@ -9,6 +9,7 @@ Jedná se o demo projekt pro zobrazení parcel v mapě okresu Jičín. Frontend 
 - Datová vrstva v `backend/data/parcels.geojson`
 - API endpointy v `backend/public/index.php`
 - Mapová vrstva pomocí Leaflet a OpenStreetMap tiles
+- Testy pro frontend i backend pro zajištění stability projektu
 
 ## Předpoklady
 
@@ -63,6 +64,19 @@ curl 'http://127.0.0.1:8000/api/parcels?bbox=15.28,50.42,15.41,50.47'
 
 Mělo by se vrátit JSON ve formátu GeoJSON FeatureCollection.
 
+## Testy
+
+Ověřila jsem projekt pomocí automatických testů pro frontend i backend.
+
+```bash
+npm test
+```
+
+Tento příkaz spouští:
+
+- Vitest testy pro frontend (API, hook a komponenty)
+- PHP test pro repository a cache fallback
+
 ## API
 
 - `GET /api/parcels?bbox=minLon,minLat,maxLon,maxLat`
@@ -79,6 +93,7 @@ Mělo by se vrátit JSON ve formátu GeoJSON FeatureCollection.
 - `backend/src/ParcelRepository.php` — načítání a filtrování parcel
 - `backend/data/parcels.geojson` — demo data parcel
 - `frontend/src/` — React komponenty, mapové vrstvy a typy
+- `frontend/src/features/.../*.test.ts*` — testy frontend komponent a logiky
 
 ## Krátký zápisník rozhodnutí
 
@@ -87,6 +102,7 @@ Mělo by se vrátit JSON ve formátu GeoJSON FeatureCollection.
 - Zvolila jsem čisté PHP bez frameworku, protože projekt je relativně malý a přehledná implementace je rychlejší a snadněji udržovatelná.
 - Použila jsem GeoJSON jako lokální zdroj dat, protože je ideální pro demo a jednoduché filtrování podle bounding boxu.
 - Pro mapu jsem zvolila Leaflet, protože má nízkou složitost, velmi dobré API pro GeoJSON a rychle se do něj implemetuje interaktivní mapová vrstva.
+- Přidala jsem testy, abych si chránila klíčové funkce a zamezila regresím při dalších úpravách.
 
 ### Co mě překvapilo
 
@@ -102,14 +118,14 @@ Mělo by se vrátit JSON ve formátu GeoJSON FeatureCollection.
 
 ## Ověření v tomto prostředí
 
-Frontend byl ověřen příkazem:
+Frontend jsem ověřila příkazem:
 
 ```bash
 cd frontend
 npm run lint && npm run build
 ```
 
-Backend API bylo ověřeno přes built-in PHP server a dotazem:
+Backend API jsem ověřila přes built-in PHP server a dotazem:
 
 ```bash
 curl 'http://127.0.0.1:8000/api/parcels?bbox=15.28,50.42,15.41,50.47'
