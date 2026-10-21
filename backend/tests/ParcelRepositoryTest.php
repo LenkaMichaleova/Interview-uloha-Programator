@@ -26,15 +26,16 @@ if ($feature === null || !isset($feature['properties']['parcelNumber'])) {
     exit(1);
 }
 
-$filtered = $repo->listWithinBounds(14.14, 49.26, 14.18, 49.29);
+$filtered = $repo->listWithinBounds(15.32, 50.42, 15.39, 50.45);
 if (count($filtered) < 1) {
-    fwrite(STDERR, "Expected bbox filter to return at least one parcel.\n");
+    fwrite(STDERR, "Expected bbox filter to return at least one parcel in the Jičín demo dataset.\n");
     exit(1);
 }
 
-$refreshed = $repo->refreshFromSource();
+$offlineRepo = new ParcelRepository($dataFile, 'https://127.0.0.1:1/invalid', 3600);
+$refreshed = $offlineRepo->refreshFromSource();
 if (!is_array($refreshed) || count($refreshed) < 1) {
-    fwrite(STDERR, "Expected refreshFromSource to return a feature list.\n");
+    fwrite(STDERR, "Expected refreshFromSource to fall back to cached data when the source is unreachable.\n");
     exit(1);
 }
 
