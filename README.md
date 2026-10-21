@@ -116,3 +116,34 @@ curl 'http://127.0.0.1:8000/api/parcels?bbox=15.28,50.42,15.41,50.47'
 ```
 
 Výsledkem je validní GeoJSON FeatureCollection, které je kompatibilní s mapovou vrstvou v frontendu.
+
+## Nasazení (Render + Netlify)
+
+Projekt může zůstat v jednom GitHub repozitáři (frontend i backend pohromadě).
+
+### 1) Backend na Render
+
+- Přihlaste se na Render přes GitHub a vytvořte `New Web Service`.
+- Vyberte tento repozitář.
+- Pokud Render nenabízí PHP runtime, zvolte `Docker` runtime.
+- Render načte soubor `render.yaml` z kořene projektu a použije `backend/Dockerfile`.
+- Po deploy získáte URL backendu, například `https://your-api-name.onrender.com`.
+
+Ověření API:
+
+```bash
+curl 'https://your-api-name.onrender.com/api/parcels?bbox=15.3,50.42,15.41,50.47'
+```
+
+### 2) Frontend na Netlify
+
+- V Netlify zvolte `Add new site` -> `Import an existing project`.
+- Vyberte stejný GitHub repozitář.
+- Nastavte:
+  - Base directory: `frontend`
+  - Build command: `npm run build`
+  - Publish directory: `dist`
+- V proměnných prostředí na Netlify nastavte:
+  - `VITE_API_BASE_URL=https://your-api-name.onrender.com`
+
+Frontend používá proměnnou `VITE_API_BASE_URL` pro produkční volání API. Lokálně zůstává zachováno volání přes `/api` a Vite proxy.
