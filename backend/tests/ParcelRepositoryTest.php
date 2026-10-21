@@ -32,9 +32,10 @@ if (count($filtered) < 1) {
     exit(1);
 }
 
-$refreshed = $repo->refreshFromSource();
+$offlineRepo = new ParcelRepository($dataFile, 'https://127.0.0.1:1/invalid', 3600);
+$refreshed = $offlineRepo->refreshFromSource();
 if (!is_array($refreshed) || count($refreshed) < 1) {
-    fwrite(STDERR, "Expected refreshFromSource to return a feature list.\n");
+    fwrite(STDERR, "Expected refreshFromSource to fall back to cached data when the source is unreachable.\n");
     exit(1);
 }
 

@@ -73,8 +73,16 @@ final class ParcelRepository
      */
     public function refreshFromSource(): array
     {
-        $payload = $this->downloadSourceData();
-        $features = $this->normalizeFeatures($payload['features'] ?? []);
+        try {
+            $payload = $this->downloadSourceData();
+            $features = $this->normalizeFeatures($payload['features'] ?? []);
+        } catch (Throwable $exception) {
+            if (!is_file($this->dataFile)) {
+                throw $exception;
+            }
+
+            return $this->loadFeaturesFromCache();
+        }
 
         $directory = dirname($this->dataFile);
         if (!is_dir($directory) && !mkdir($directory, 0777, true) && !is_dir($directory)) {
@@ -109,7 +117,11 @@ final class ParcelRepository
 
         $lastModified = @filemtime($this->dataFile);
         if ($lastModified === false || (time() - $lastModified) > $this->cacheTtlSeconds) {
-            $this->refreshFromSource();
+            try {
+                $this->refreshFromSource();
+            } catch (Throwable $exception) {
+                return;
+            }
         }
     }
 
